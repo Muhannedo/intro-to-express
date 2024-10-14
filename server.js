@@ -91,6 +91,10 @@ const shoes = [
 // type: Shows only shoes of the specified type.
 // No parameters: Responds with the full list of shoes.
 app.get("/shoes", (req, res) => {
+  const minPrice = req.query.minPrice;
+  const maxPrice = req.query.maxPrice;
+  const type = req.query.type;
+
   let shoesFiltering = shoes;
   if (minPrice) {
     shoesFiltering = shoesFiltering.filter(
