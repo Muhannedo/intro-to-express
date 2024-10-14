@@ -27,25 +27,19 @@ app.listen(3000, () => {
 app.get("/", (req, res) => {
   res.send("<h1>Hello Express!</h1>");
 });
-//   Task: Create a route that responds to URLs like /greetings/<username-parameter>.
-
+//   1.Task: Create a route that responds to URLs like /greetings/<username-parameter>.
 //   Examples: Matches routes like /greetings/Christy or /greetings/Mathilda.
-
 //   Response: Include the username from the URL in the response, such as "Hello there, Christy!" or "What a delight it is to see you once more, Mathilda."
 app.get("/greetings/:name", (req, res) => {
   console.log("req.params", req.params);
   res.send(`Hello there ${req.params.name}`);
 });
 
-// Rolling the Dice
+// 2.Rolling the Dice
 // Task: Set up a route to handle URLs following the pattern /roll/<number-parameter>.
-
 // Examples: Matches routes like /roll/6 or /roll/20.
-
 // Validation: If the parameter is not a number, respond with "You must specify a number." For instance, /roll/potato should trigger this response.
-
 // Functionality: If a valid number is provided, respond with a random whole number between 0 and the given number. For example, a request to /roll/16 might respond with "You rolled a 14."
-
 app.get("/roll/:number", (req, res) => {
   const num = Math.floor(Math.random() * req.params.number);
 
@@ -60,7 +54,6 @@ app.get("/roll/:number", (req, res) => {
 
 // 3. I Want THAT One!
 // Task: Create a route for URLs like /collectibles/<index-parameter>.
-
 // Examples: Matches routes such as /collectibles/2 or /collectibles/0.
 
 const collectibles = [
@@ -82,11 +75,6 @@ app.get("/collectibles/:index", (req, res) => {
   }
 });
 
-app.get("/hello", (req, res) => {
-  res.send(
-    `Hello there, ${req.query.name}! I hear you are ${req.query.age} years old!`
-  );
-});
 const shoes = [
   { name: "Birkenstocks", price: 50, type: "sandal" },
   { name: "Air Jordans", price: 500, type: "sneaker" },
@@ -96,7 +84,7 @@ const shoes = [
   { name: "Jet Boots", price: 1000, type: "boot" },
   { name: "Fifty-Inch Heels", price: 175, type: "heel" },
 ];
-// Task: Create a route /shoes that filters the list of shoes based on query parameters.
+// 4.Task: Create a route /shoes that filters the list of shoes based on query parameters.
 // Query Parameters:
 // min-price: Excludes shoes below this price.
 // max-price: Excludes shoes above this price.
